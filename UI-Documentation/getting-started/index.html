@@ -493,13 +493,15 @@
 
 <h1 id="getting-started">Getting Started</h1>
 <h2 id="sync-example">Sync Example</h2>
-<pre><code class="language-python">from scrapesome.scraper import scraper
+<pre><code class="language-python">from scrapesome.scraper.sync_scraper import scraper
 html = scraper(&quot;https://example.com&quot;)
+html
 </code></pre>
 <h2 id="async-example">Async Example</h2>
 <pre><code class="language-python">import asyncio
-from scrapesome.scraper import async_scraper
-html = asyncio.run(async_scraper(&quot;https://example.com&quot;))
+from scrapesome.scraper.async_scraper import scraper
+html = asyncio.run(scraper(&quot;https://example.com&quot;))
+html
 </code></pre>
 
 
@@ -528,6 +530,12 @@ html = asyncio.run(async_scraper(&quot;https://example.com&quot;))
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
   
 </div>
       
