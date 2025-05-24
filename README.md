@@ -73,7 +73,7 @@ ScrapeSome reads from environment variables if a .env file is present.
 
 Example .env
 
-``env
+```env
 LOG_LEVEL=INFO
 EXPORT_FORMAT=text
 FETCH_PLAYWRIGHT_TIMEOUT=10
