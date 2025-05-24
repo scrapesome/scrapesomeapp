@@ -21,3 +21,4 @@ from scrapesome.scraper.sync_scraper import scraper
 content = scraper("https://example.com", allow_redirects=False)
 content
 ```
+Similarly async can also be used.
