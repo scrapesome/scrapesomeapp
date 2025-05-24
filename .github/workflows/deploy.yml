@@ -3,16 +3,15 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - "main"    # Trigger for dev deployment on push to main
-    tags:
-      - "v*"      # Trigger for prod deployment on tag creation (e.g., v1.0, v2.0)
+      - "main"    # Trigger for prod deployment on push to main
+      - "dev"     # Trigger for dev deployment on push to dev
 
 jobs:
   build-and-deploy-development-server:
     runs-on: ubuntu-latest
     environment: development  # Specify dev environment for dev deployment
 
-    if: github.ref == 'refs/heads/main'  # Ensure this only runs on push to main
+    if: github.ref == 'refs/heads/dev'  # Ensure this only runs on push to dev
 
     steps:
       - name: Checkout code
@@ -90,7 +89,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production  # Specify prod environment for prod deployment
 
-    if: startsWith(github.ref, 'refs/tags/v')  # Ensure this only runs on tag creation
+    if: github.ref == 'refs/heads/main'  # Ensure this only runs on push to main
 
     steps:
       - name: Checkout code
