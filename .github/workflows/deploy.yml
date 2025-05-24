@@ -32,9 +32,9 @@ jobs:
           fi
           echo "Authenticated successfully with Render API."
 
-      - name: Build Docker Image
-        run: |
-          docker build -t ${{ secrets.DOCKER_IMAGE_NAME }}:latest .
+      # - name: Build Docker Image
+      #   run: |
+      #     docker build -t ${{ secrets.DOCKER_IMAGE_NAME }}:latest .
 
       - name: Trigger Render Deployment (Development)
         run: |
@@ -110,9 +110,9 @@ jobs:
           fi
           echo "Authenticated successfully with Render API."
 
-      - name: Build Docker Image
-        run: |
-          docker build -t ${{ secrets.DOCKER_IMAGE_NAME }}:latest .
+      # - name: Build Docker Image
+      #   run: |
+      #     docker build -t ${{ secrets.DOCKER_IMAGE_NAME }}:latest .
 
       - name: Trigger Render Deployment (Production)
         run: |
