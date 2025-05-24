@@ -3,15 +3,21 @@
 
 ## Force Rendering
 ```python
-scraper("https://example.com", force_playwright=True)
+from scrapesome.scraper.sync_scraper import scraper
+content = scraper("https://example.com", force_playwright=True)
+content
 ```
 
 Custom User Agents
 ```python
-scraper("https://example.com", user_agents=["AgentX/1.0"])
+from scrapesome.scraper.sync_scraper import scraper
+content = scraper("https://example.com", user_agents=["AgentX/1.0"])
+content
 ```
 
 Redirects
 ```python
-scraper("https://example.com", allow_redirects=False)
+from scrapesome.scraper.sync_scraper import scraper
+content = scraper("https://example.com", allow_redirects=False)
+content
 ```
