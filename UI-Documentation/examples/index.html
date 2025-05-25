@@ -488,22 +488,22 @@
   <h1>Examples</h1>
 
 <h2 id="sync-examples">Sync Examples</h2>
-<pre><code class="language-python">from scrapesome.scraper.sync_scraper import scraper
+<pre><code class="language-python">from scrapesome.scraper.sync_scraper import sync_scraper
 
 if __name__ == &quot;__main__&quot;:
     url = &quot;https://adenuniversity.us&quot;
-    format_type = &quot;text&quot;
+    output_format_type = &quot;text&quot;
     with open(&quot;test.txt&quot;,&quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
-        f.write(str(scraper(url=url,format_type=format_type)))
+        f.write(str(sync_scraper(url=url,output_format_type=output_format_type)))
 </code></pre>
 <h2 id="async-examples">Async Examples</h2>
 <pre><code class="language-python">import asyncio
-from scrapesome.scraper.async_scraper import scraper as async_scraper
+from scrapesome.scraper.async_scraper import async_scraper
 
 async def main():
     url = &quot;https://www.sandiego.edu/academics/&quot;
-    format_type = &quot;html&quot;
-    content = await async_scraper(url=url, format_type=format_type, force_playwright=False)
+    output_format_type = &quot;html&quot;
+    content = await async_scraper(url=url, output_format_type=output_format_type, force_playwright=False)
     with open(&quot;test_async.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
         f.write(str(content or &quot;&quot;))
 

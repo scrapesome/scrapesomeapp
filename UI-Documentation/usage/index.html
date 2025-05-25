@@ -475,20 +475,21 @@
 
 <h1 id="usage">Usage</h1>
 <h2 id="force-rendering">Force Rendering</h2>
-<pre><code class="language-python">from scrapesome.scraper.sync_scraper import scraper
-content = scraper(&quot;https://example.com&quot;, force_playwright=True)
+<pre><code class="language-python">from scrapesome.scraper.sync_scraper import sync_scraper
+content = sync_scraper(&quot;https://example.com&quot;, force_playwright=True)
 content
 </code></pre>
 <p>Custom User Agents</p>
-<pre><code class="language-python">from scrapesome.scraper.sync_scraper import scraper
-content = scraper(&quot;https://example.com&quot;, user_agents=[&quot;AgentX/1.0&quot;])
+<pre><code class="language-python">from scrapesome.scraper.sync_scraper import sync_scraper
+content = sync_scraper(&quot;https://example.com&quot;, user_agents=[&quot;AgentX/1.0&quot;])
 content
 </code></pre>
 <p>Redirects</p>
-<pre><code class="language-python">from scrapesome.scraper.sync_scraper import scraper
-content = scraper(&quot;https://example.com&quot;, allow_redirects=False)
+<pre><code class="language-python">from scrapesome.scraper.sync_scraper import sync_scraper
+content = sync_scraper(&quot;https://example.com&quot;, allow_redirects=False)
 content
 </code></pre>
+<p>similarly <strong>async_scraper</strong> can also be used.</p>
 
 
 

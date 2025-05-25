@@ -470,11 +470,11 @@
   <h1>Environment Configuration</h1>
 
 <h3 id="environment-configuration">⚙️ Environment Configuration</h3>
-<p>Scrapesome supports environment-based configuration via a <code>.env</code> file.</p>
+<p><strong>ScrapeSome</strong> supports environment-based configuration via a <code>.env</code> file.</p>
 <table>
 <thead>
 <tr>
-<th>Variable</th>
+<th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -492,16 +492,21 @@
 <td>Logging verbosity (DEBUG, INFO, WARNING, etc.)</td>
 </tr>
 <tr>
-<td>EXPORT_FORMAT</td>
-<td>Default export format (text, markdown, json, html)</td>
+<td>OUTPUT_FORMAT</td>
+<td>Default output format (text, markdown, json, html)</td>
+</tr>
+<tr>
+<td>USER_AGENTS</td>
+<td>Default user agents ("Mozilla/5.0 (Windows NT 10.0; Win64; x64).......")</td>
 </tr>
 </tbody>
 </table>
 <p>📁 Example <code>.env</code>:</p>
-<pre><code class="language-env">FETCH_PLAYWRIGHT_TIMEOUT=20
+<pre><code class="language-env">LOG_LEVEL=INFO
+OUTPUT_FORMAT=text
+FETCH_PLAYWRIGHT_TIMEOUT=10
 FETCH_PAGE_TIMEOUT=10
-LOG_LEVEL=INFO
-EXPORT_FORMAT=text
+USER_AGENTS=[&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64).......&quot;]
 </code></pre>
 
 
