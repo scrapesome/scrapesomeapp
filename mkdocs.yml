@@ -1,6 +1,7 @@
 site_name: ScrapeSome
 theme:
   name: material
+  logo: docs/assets/favicon.png
   palette:
     primary: green
     accent: black
