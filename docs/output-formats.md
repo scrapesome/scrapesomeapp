@@ -1,3 +1,4 @@
+
 ## 📄 Output Formats
 
 JSON Example
@@ -5,7 +6,7 @@ JSON Example
 Get `json` version
 
 ```python
-from scrapesome.scraper.sync_scraper import sync_scraper
+from scrapesome import sync_scraper
 content = sync_scraper("https://example.com", output_format_type="json")
 content
 ```
@@ -25,7 +26,7 @@ Output
 Convert HTML to Markdown with:
 
 ```python
-from scrapesome.scraper.sync_scraper import sync_scraper
+from scrapesome import sync_scraper
 content = sync_scraper("https://example.com", output_format_type="markdown")
 content
 ```
@@ -34,7 +35,7 @@ Output
 ```text
 # Online Global Masters that boost your global career
 
-**ADEN University** offers students access to professionals who operate in the world of business and administration, who share their knowledge and acumen collaboratively with their students in all **academic programs** offered at ADEN.
+**ADEN University** offers students access to professionals who operate in the world of business and administration, who share their knowledge and acumen collaboratively with their students in all **academic programs** offered at ADEN.
 
 [About Us](about-aden-university)
 
