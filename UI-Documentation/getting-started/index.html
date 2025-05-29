@@ -88,12 +88,8 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="ScrapeSome" class="md-header__button md-logo" aria-label="ScrapeSome" data-md-component="logo">
       
-  
-  
-  <!--
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
--->
-      <img src="https://raw.githubusercontent.com/scrapesome/scrapesome/refs/heads/main/docs/assets/images/favicon.png" alt="scrapesome" width=100/>
+  <img src="../assets/images/favicon.png" alt="logo">
+
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
@@ -189,12 +185,8 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="ScrapeSome" class="md-nav__button md-logo" aria-label="ScrapeSome" data-md-component="logo">
       
-  
-  
-  <!--
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
--->
-      <img src="https://raw.githubusercontent.com/scrapesome/scrapesome/refs/heads/main/docs/assets/images/favicon.png" alt="scrapesome" width=100/>
+  <img src="../assets/images/favicon.png" alt="logo">
+
     </a>
     ScrapeSome
   </label>
@@ -300,6 +292,48 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#playwright-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Playwright Setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Playwright Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-playwright-python-package-if-not-installed" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Install Playwright Python package if not installed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-playwright-browsers" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Install Playwright browsers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-install-system-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Install system dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#sync-example" class="md-nav__link">
@@ -464,6 +498,48 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#playwright-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Playwright Setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Playwright Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-playwright-python-package-if-not-installed" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Install Playwright Python package if not installed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-playwright-browsers" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Install Playwright browsers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-install-system-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Install system dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sync-example" class="md-nav__link">
     <span class="md-ellipsis">
       Sync Example
@@ -498,14 +574,42 @@
 
 
 <h1 id="getting-started">Getting Started</h1>
+<h2 id="playwright-setup">Playwright Setup</h2>
+<p>ScrapeSome uses Playwright for JavaScript rendering fallback. To enable this, you need to install Playwright and its dependencies.</p>
+<h3 id="1-install-playwright-python-package-if-not-installed">1. Install Playwright Python package if not installed</h3>
+<pre><code class="language-bash">pip install playwright
+</code></pre>
+<h3 id="2-install-playwright-browsers">2. Install Playwright browsers</h3>
+<pre><code class="language-bash">playwright install
+</code></pre>
+<h3 id="3-install-system-dependencies">3. Install system dependencies</h3>
+<p>Playwright requires some system libraries to run browsers, which vary by operating system.</p>
+<p>For <code>Windows</code>
+Playwright installs everything you need automatically with playwright install, so no additional setup is usually required.</p>
+<p>For <code>Linux (Ubuntu/Debian)</code>
+Run the following command to install required system libraries:</p>
+<pre><code class="language-bash">playwright install-deps
+</code></pre>
+<p>If you don't have playwright CLI available, you can install dependencies manually:</p>
+<pre><code class="language-bash">sudo apt-get update
+sudo apt-get install -y libwoff1 libopus0 libwebp6 libharfbuzz-icu0 libwebpmux3 \
+                        libenchant-2-2 libhyphen0 libegl1 libglx0 libgudev-1.0-0 \
+                        libevdev2 libgles2 libx264-160
+</code></pre>
+<p>Note: Package names may vary depending on your distribution and version.</p>
+<p>For <code>macOS</code>
+You can install required libraries using Homebrew:</p>
+<pre><code class="language-bash">brew install harfbuzz enchant
+</code></pre>
+<p>After this setup, you should be able to use ScrapeSome with full Playwright rendering support!</p>
 <h2 id="sync-example">Sync Example</h2>
-<pre><code class="language-python">from scrapesome.scraper.sync_scraper import sync_scraper
+<pre><code class="language-python">from scrapesome import sync_scraper
 html = sync_scraper(&quot;https://example.com&quot;)
 html
 </code></pre>
 <h2 id="async-example">Async Example</h2>
 <pre><code class="language-python">import asyncio
-from scrapesome.scraper.async_scraper import async_scraper
+from scrapesome import async_scraper
 html = asyncio.run(async_scraper(&quot;https://example.com&quot;))
 html
 </code></pre>
