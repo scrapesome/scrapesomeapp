@@ -17,19 +17,20 @@ Usage:
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from app.routes.routes import default_router
+from app.routes.documentation import documentation_router
 from app.settings.config import Settings
+# from app.middlewares.token_middleware import TokenMiddleware
 
 settings = Settings()
-
-# from app.middlewares.token_middleware import TokenMiddleware
 
 # Create the FastAPI application instance
 app = FastAPI(title=settings.app_name)
 
-# Mount the static HTML site at /docs
-app.mount("/documentation", StaticFiles(directory="UI-Documentation", html=True), name="documentation")
 
 # app.add_middleware(middleware_class=TokenMiddleware)
 
 # Include the default routes for health and status checks
 app.include_router(router=default_router, tags=["health", "status"])
+
+# Include the routes for documentation
+app.include_router(router=documentation_router, tags=["documentation"])

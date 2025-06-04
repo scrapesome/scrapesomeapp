@@ -14,7 +14,7 @@ Features:
 - Injects `role` and `user_id` into the request state for downstream use.
 
 Environment Variables Required:
-- PUBLIC_KEY: The RSA public key used to validate JWT tokens.
+- TOKEN_VALIDATION_PUBLIC_KEY: The RSA public key used to validate JWT tokens.
 - public-endpoints: (Optional) Comma-separated paths that skip authentication.
 - roles: (Optional) Comma-separated list of allowed roles.
 - ENV: (Optional) The environment mode. In ["dev", "local", "test"], token validation is skipped.
@@ -31,13 +31,15 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from fastapi import Request
 from fastapi.responses import JSONResponse
 from app.utils.string_utils import string_to_list
+from app.settings.config import Settings
 
 load_dotenv()
+settings = Settings()
 
 # Load the public key from environment variables
-public_key = os.getenv("public-key")
-if not public_key:
-    raise ValueError("PUBLIC_KEY environment variable must be set")
+token_validation_public_key = settings.token_validation_public_key
+if not token_validation_public_key:
+    raise ValueError("TOKEN_VALIDATION_PUBLIC_KEY environment variable must be set")
 
 # Middleware class to handle JWT validation for all incoming requests
 class TokenMiddleware(BaseHTTPMiddleware):
@@ -98,8 +100,8 @@ class TokenMiddleware(BaseHTTPMiddleware):
         token = authorization[len("Bearer "):]
 
         try:
-            # Decode JWT token with public key (ensure 'public_key' is defined elsewhere)
-            payload = decode(token, public_key, algorithms=["RS256"])
+            # Decode JWT token with public key (ensure 'token_validation_public_key' is defined elsewhere)
+            payload = decode(token, token_validation_public_key, algorithms=["RS256"])
 
             # Extract role and user ID from the payload
             role = payload.get("extension_Roles")

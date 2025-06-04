@@ -21,7 +21,7 @@ class Settings:
         self.env = self._get("ENV", default="development")
 
         self.app_name = self._get("APP_NAME", default="ScrapeSome")
-        self.app_version = self._get("APP_VERSION", default="0.0.1")
+        self.app_version = self._get("APP_VERSION", default="")
 
         #🛢️ Database Config
         self.database_url = self._get("DATABASE_URL", default="")
@@ -38,13 +38,16 @@ class Settings:
 
         #🛡️ Security
         self.access_token_expire_minutes = self._get("ACCESS_TOKEN_EXPIRE_MINUTES", default="60")
-        self.token_validation_secret_key = self._get("TOKEN_VALIDATION_SECRET_KEY", default="")
+        self.token_validation_public_key = self._get("TOKEN_VALIDATION_PUBLIC_KEY", default="")
 
         #⚙️ Scraper Behavior Settings
         self.max_workers = self._get("MAX_WORKERS", default="1")
 
         #📤 Output Format Defaults
-        self.default_export_format = self._get("EXPORT_FORMAT", default="text")
+        self.default_export_format = self._get("EXPORT_FORMAT", default="html")
+
+        # additionals
+        self.documentation_redirect_url = self._get("DOCUMENTATION_REDIRECT_URL", default="https://scrapesome.github.io/scrapesome")
 
 
     def _get(self, key: str, default: str | None = None) -> str:

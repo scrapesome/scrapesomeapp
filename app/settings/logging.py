@@ -10,7 +10,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 from app.settings.config import Settings
 
-def get_logger(name: str = "scrapesome") -> logging.Logger:
+def get_logger(name: str = "ScrapeSome") -> logging.Logger:
     """
     Create and return a logger with a rotating file handler.
     
