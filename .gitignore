@@ -186,8 +186,3 @@ cython_debug/
 *htmlcov
 
 !requirements.txt
-
-
-
-#additional
-actual_lib/
