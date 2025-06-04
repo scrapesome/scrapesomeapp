@@ -531,6 +531,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="file-saving/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File Saving
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -680,67 +702,92 @@
 <tr>
 <th>Feature</th>
 <th>ScrapeSome ✅</th>
-<th>Scrapy</th>
-<th>Selenium/UC</th>
-<th>Playwright (Raw)</th>
+<th>Playwright (Python)</th>
+<th>Selenium + UC</th>
+<th>Requests-HTML</th>
+<th>Scrapy + Playwright</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>✅ Sync + Async Scraping</td>
-<td>✅ Built-in</td>
-<td>❌ Async only*</td>
-<td>❌ Manual</td>
-<td>❌ Manual</td>
+<td>🧠 JS Rendering Support</td>
+<td>✅ Auto fallback on 403/JS content</td>
+<td>✅ Always (manual control)</td>
+<td>✅ Always (manual control)</td>
+<td>✅ Partial (via Pyppeteer)</td>
+<td>✅ Requires setup</td>
 </tr>
 <tr>
-<td>🧠 JS Rendering (Fallback)</td>
-<td>✅ Seamless</td>
-<td>❌ Plugin setup</td>
-<td>✅ Full</td>
-<td>✅ Full</td>
+<td>🔄 Automatic Fallback (403/Blank)</td>
+<td>✅ Yes (seamless)</td>
+<td>❌ Manual logic needed</td>
+<td>❌ Manual logic needed</td>
+<td>❌ No</td>
+<td>❌ Needs per-request config</td>
 </tr>
 <tr>
-<td>📝 Output as JSON/Markdown/HTML</td>
+<td>🔁 Uses Browser Engine</td>
+<td>✅ Only when needed (Playwright)</td>
+<td>✅ Always</td>
+<td>✅ Always</td>
+<td>✅ (Unstable, slow)</td>
+<td>✅ Always (if enabled)</td>
+</tr>
+<tr>
+<td>✅ Sync + Async Support</td>
 <td>✅ Built-in</td>
-<td>❌ Requires custom</td>
+<td>❌ Async only</td>
+<td>❌ Manual (via threading)</td>
+<td>❌ Sync only</td>
+<td>❌ Async only (via plugin)</td>
+</tr>
+<tr>
+<td>📝 JSON/Markdown/HTML Output</td>
+<td>✅ Built-in formats</td>
 <td>❌ Manual parsing</td>
 <td>❌ Manual parsing</td>
+<td>❌ Basic only</td>
+<td>❌ Custom pipeline needed</td>
 </tr>
 <tr>
-<td>🔁 Retry &amp; Timeout Handling</td>
-<td>✅ Built-in</td>
-<td>⚠️ Requires config</td>
-<td>❌ Manual</td>
-<td>❌ Manual</td>
-</tr>
-<tr>
-<td>⚡ Minimal Setup (Boilerplate)</td>
+<td>⚡ Minimal Setup</td>
 <td>✅ Near zero</td>
-<td>❌ Needs project</td>
-<td>❌ Driver setup</td>
-<td>❌ Browser install</td>
+<td>❌ Code + browser install</td>
+<td>❌ Driver + setup</td>
+<td>✅ Simple pip install</td>
+<td>❌ Complex + plugin setup</td>
 </tr>
 <tr>
-<td>🧪 Testable out-of-the-box</td>
-<td>✅ Pytest-ready</td>
-<td>⚠️ Complex</td>
-<td>❌</td>
-<td>❌</td>
+<td>🔁 Retries, Timeouts, Agents</td>
+<td>✅ Smart defaults built-in</td>
+<td>❌ Manual handling</td>
+<td>❌ Manual handling</td>
+<td>❌ Limited</td>
+<td>⚠️ Partial via settings</td>
 </tr>
 <tr>
-<td>🛠️ Config via .env or inline</td>
-<td>✅ Simple</td>
-<td>⚠️ Complex</td>
-<td>❌</td>
-<td>❌</td>
+<td>🧪 Pytest-Ready Out-of-the-box</td>
+<td>✅ Fully testable</td>
+<td>⚠️ Requires mocks</td>
+<td>❌ Hard to test</td>
+<td>❌ Minimal</td>
+<td>⚠️ Needs testing harness</td>
+</tr>
+<tr>
+<td>⚙️ Config via .env / Inline</td>
+<td>✅ Flexible and optional</td>
+<td>❌ Code/config only</td>
+<td>❌ Manual via code</td>
+<td>❌ Hardcoded mostly</td>
+<td>⚠️ Project settings</td>
 </tr>
 <tr>
 <td>📦 Install &amp; Run in &lt;1 Min</td>
 <td>✅ Yes</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
+<td>❌ Setup required</td>
+<td>❌ Driver + config needed</td>
+<td>✅ Yes</td>
+<td>❌ Needs project + plugin</td>
 </tr>
 </tbody>
 </table>

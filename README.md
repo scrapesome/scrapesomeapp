@@ -63,16 +63,19 @@
 
 ## ⚖ Comparison with Alternatives
 
-| Feature                          | ScrapeSome ✅       | Scrapy              | Selenium/UC         | Playwright (Raw)     |
-|----------------------------------|---------------------|---------------------|----------------------|----------------------|
-| ✅ Sync + Async Scraping         | ✅ Built-in         | ❌ Async only*      | ❌ Manual            | ❌ Manual            |
-| 🧠 JS Rendering (Fallback)       | ✅ Seamless         | ❌ Plugin setup     | ✅ Full              | ✅ Full              |
-| 📝 Output as JSON/Markdown/HTML | ✅ Built-in         | ❌ Requires custom  | ❌ Manual parsing    | ❌ Manual parsing    |
-| 🔁 Retry & Timeout Handling      | ✅ Built-in         | ⚠️ Requires config  | ❌ Manual            | ❌ Manual            |
-| ⚡ Minimal Setup (Boilerplate)   | ✅ Near zero        | ❌ Needs project    | ❌ Driver setup      | ❌ Browser install   |
-| 🧪 Testable out-of-the-box       | ✅ Pytest-ready     | ⚠️ Complex          | ❌                   | ❌                   |
-| 🛠️ Config via .env or inline     | ✅ Simple           | ⚠️ Complex          | ❌                   | ❌                   |
-| 📦 Install & Run in <1 Min       | ✅ Yes              | ❌                  | ❌                   | ❌                   |
+| Feature                          | ScrapeSome ✅                         | Playwright (Python)        | Selenium + UC               | Requests-HTML              | Scrapy + Playwright         |
+|----------------------------------|--------------------------------------|-----------------------------|------------------------------|-----------------------------|------------------------------|
+| 🧠 JS Rendering Support          | ✅ Auto fallback on 403/JS content    | ✅ Always (manual control)  | ✅ Always (manual control)   | ✅ Partial (via Pyppeteer)  | ✅ Requires setup            |
+| 🔄 Automatic Fallback (403/Blank)| ✅ Yes (seamless)                     | ❌ Manual logic needed       | ❌ Manual logic needed        | ❌ No                       | ❌ Needs per-request config  |
+| 🔁 Uses Browser Engine           | ✅ Only when needed (Playwright)      | ✅ Always                   | ✅ Always                    | ✅ (Unstable, slow)         | ✅ Always (if enabled)       |
+| ✅ Sync + Async Support         | ✅ Built-in                           | ❌ Async only               | ❌ Manual (via threading)    | ❌ Sync only                | ❌ Async only (via plugin)   |
+| 📝 JSON/Markdown/HTML Output    | ✅ Built-in formats                   | ❌ Manual parsing           | ❌ Manual parsing            | ❌ Basic only               | ❌ Custom pipeline needed    |
+| ⚡ Minimal Setup                 | ✅ Near zero                          | ❌ Code + browser install   | ❌ Driver + setup            | ✅ Simple pip install       | ❌ Complex + plugin setup    |
+| 🔁 Retries, Timeouts, Agents    | ✅ Smart defaults built-in            | ❌ Manual handling          | ❌ Manual handling           | ❌ Limited                  | ⚠️ Partial via settings      |
+| 🧪 Pytest-Ready Out-of-the-box  | ✅ Fully testable                     | ⚠️ Requires mocks           | ❌ Hard to test              | ❌ Minimal                  | ⚠️ Needs testing harness     |
+| ⚙️ Config via .env / Inline     | ✅ Flexible and optional              | ❌ Code/config only         | ❌ Manual via code           | ❌ Hardcoded mostly         | ⚠️ Project settings          |
+| 📦 Install & Run in <1 Min      | ✅ Yes                                | ❌ Setup required           | ❌ Driver + config needed    | ✅ Yes                      | ❌ Needs project + plugin    |
+
 
 
 
@@ -195,6 +198,65 @@ scrapesome scrape --url https://example.com --output-format json
 ```bash
 scrapesome scrape --url https://example.com --async-mode --output-format markdown
 ```
+
+## 📄 File Saving
+
+ScrapeSome allows you to format and save your scraped content with zero hassle—both via the **CLI** and in **Python code**.
+
+---
+
+### 💻 Save Output to File
+
+Use these flags to save your output directly from the command line:
+
+- `--save-to-file` or `-s`: Enable saving to a file
+- `--file-name` or `-n`: Desired filename (extension added automatically)
+- `--output-format` or `-f`: One of `html`, `text`, `markdown`, or `json`
+
+⚠️ **Note:** When saving to a file, only one URL can be scraped at a time.
+
+#### 📦 Example:
+
+```bash
+scrapesome scrape "https://example.com" \
+  --output-format markdown \
+  --save-to-file \
+  --file-name output
+```
+
+👉 This saves the result as `output.md`.
+
+---
+
+### Save Output in Code
+
+The `sync_scraper` function supports saving to file using two optional flags:
+
+- `save_to_file=True`: Enables saving
+- `file_name="your_file_name"`: Sets the base filename (extension inferred from format)
+
+The output will be returned as a dictionary:
+
+```bash
+{
+    "data": "<formatted content>",
+    "file": "your_file_name.<ext>"  # if saving is enabled
+}
+```
+
+#### 📌 Example:
+
+```python
+result = sync_scraper(
+    url="https://example.com",
+    output_format_type="json",
+    save_to_file=True,
+    file_name="example_output"
+)
+print(f"Saved output to {result['file']}")
+```
+
+Now you're set to save clean, readable data in your preferred format—programmatically or from the CLI.
 
 ## 🧰 Advanced Usage
 
