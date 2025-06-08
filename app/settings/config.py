@@ -25,6 +25,10 @@ class Settings:
 
         #🛢️ Database Config
         self.database_url = self._get("DATABASE_URL", default="")
+        self.database_name = self._get("DATABASE_NAME", default=self.app_name)
+        self.database_max_pool_size = self.get("DATABASE_MAX_POOL_SIZE", default="10")
+        self.database_min_pool_size = self.get("DATABASE_MIN_POOL_SIZE", default="2")
+        self.database_idle_time = self.get("DATABASE_IDLE_TIME", default="30000")
 
         #🌐 API Configuration
         self.host = self._get("HOST", default="0.0.0.0")

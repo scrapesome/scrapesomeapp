@@ -16,8 +16,8 @@ Usage:
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from app.routes.routes import default_router
-from app.routes.documentation import documentation_router
+from app.public.routes import default_router
+from app.public.routes.documentation import documentation_router
 from app.settings.config import Settings
 # from app.middlewares.token_middleware import TokenMiddleware
 
